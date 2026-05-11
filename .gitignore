@@ -31,5 +31,7 @@ logs*/
 *.mp4
 *.avi
 
+!.example.gif
+
 # OS/editor files
 .vscode/

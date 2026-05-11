@@ -2,7 +2,7 @@
 
 This is a self-contained Python simulation for a 12-state marine vehicle model:
 
-<img src="./.animation.gif"/>
+<img src="./.example.gif"/>
 
 ## Configuration files
 
