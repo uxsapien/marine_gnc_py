@@ -16,7 +16,7 @@ from typing import Optional
 import numpy as np
 import sympy as sp
 
-from dynamics_model import VehicleParams
+from marine_gnc_py.dynamics_model import VehicleParams
 
 
 class SymbolicJacobians:

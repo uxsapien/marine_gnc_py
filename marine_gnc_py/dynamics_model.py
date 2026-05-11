@@ -21,7 +21,7 @@ import numpy as np
 import yaml
 
 try:
-    from environment import Environment
+    from marine_gnc_py.environment import Environment
 except ImportError:  # pragma: no cover
     Environment = None
 

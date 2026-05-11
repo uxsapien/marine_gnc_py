@@ -15,9 +15,9 @@ from typing import Any, Dict, Optional
 import numpy as np
 import yaml
 
-from dynamics_model import DynamicsModel, STATE_NAMES, wrap_state_angles
-from sensor_stack import SensorReading
-from symbolic_jacobian import SymbolicJacobians
+from marine_gnc_py.dynamics_model import DynamicsModel, STATE_NAMES, wrap_state_angles
+from marine_gnc_py.sensor_stack import SensorReading
+from marine_gnc_py.symbolic_jacobian import SymbolicJacobians
 
 ANGLE_INDEX_TO_DEG_KEY = {
     3: "roll_deg",

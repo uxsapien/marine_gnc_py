@@ -1,0 +1,35 @@
+# Python cache / build artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+.venv/
+venv/
+build/
+dist/
+*.egg-info/
+
+# Generated simulation outputs / saved data
+sim_outputs*/
+outputs*/
+results*/
+logs*/
+*.csv
+*.npz
+*.npy
+*.pkl
+*.pickle
+
+# Generated figures / animations
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.mp4
+*.avi
+
+# OS/editor files
+.vscode/

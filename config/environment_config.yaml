@@ -2,7 +2,7 @@
 # truth disturbances. These disturbances are applied through tau, not as direct
 # state jumps.
 
-enabled: true
+enabled: false
 
 water_bounds:
   surface_z_m: 0.0

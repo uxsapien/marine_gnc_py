@@ -18,7 +18,7 @@ import numpy as np
 import pandas as pd
 import yaml
 
-from dynamics_model import (
+from marine_gnc_py.dynamics_model import (
     DynamicsModel,
     NoiseConfig,
     STATE_NAMES,
@@ -26,14 +26,14 @@ from dynamics_model import (
     load_vehicle_params_yaml,
     set_axes_equal,
 )
-from environment import Environment, EnvironmentConfig
-from sensor_stack import SensorStack, SensorStackConfig, readings_to_flat_dict
-from ekf import EkfConfig, ExtendedKalmanFilter
-from waypoints import WaypointFollowerConfig
-from pid_controller import PIDControllerConfig, WaypointPIDController
-from lqr_controller import LQRControllerConfig, WaypointLQRController
-from mpc_controller import MPCControllerConfig, WaypointMPCController
-from animation import AnimationConfig, animate_trajectory
+from marine_gnc_py.environment import Environment, EnvironmentConfig
+from marine_gnc_py.sensor_stack import SensorStack, SensorStackConfig, readings_to_flat_dict
+from marine_gnc_py.ekf import EkfConfig, ExtendedKalmanFilter
+from marine_gnc_py.waypoints import WaypointFollowerConfig
+from marine_gnc_py.pid_controller import PIDControllerConfig, WaypointPIDController
+from marine_gnc_py.lqr_controller import LQRControllerConfig, WaypointLQRController
+from marine_gnc_py.mpc_controller import MPCControllerConfig, WaypointMPCController
+from marine_gnc_py.animation import AnimationConfig, animate_trajectory
 
 
 DEFAULT_CONFIG_DIR = Path("config")

@@ -20,8 +20,8 @@ import numpy as np
 import yaml
 from scipy.optimize import minimize
 
-from dynamics_model import DynamicsModel, wrap_angle, wrap_state_angles
-from waypoints import WaypointFollowerConfig, WaypointNavigator, ControlDebug
+from marine_gnc_py.dynamics_model import DynamicsModel, wrap_angle, wrap_state_angles
+from marine_gnc_py.waypoints import WaypointFollowerConfig, WaypointNavigator, ControlDebug
 
 
 STATE_NAMES = ["x", "y", "z", "roll", "pitch", "yaw", "u", "v", "w", "p", "q", "r"]

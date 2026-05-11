@@ -80,7 +80,7 @@
     }
   },
   "environment_config": {
-    "enabled": true,
+    "enabled": false,
     "water_bounds": {
       "surface_z_m": 0.0,
       "water_depth_m": 30.0

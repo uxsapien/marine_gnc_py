@@ -16,7 +16,7 @@ from math import cos, sin
 import numpy as np
 import yaml
 
-from waypoints import WaypointFollowerConfig, WaypointNavigator, ControlDebug
+from marine_gnc_py.waypoints import WaypointFollowerConfig, WaypointNavigator, ControlDebug
 
 
 def _array(data: Any, default: list[float], n: int) -> np.ndarray:

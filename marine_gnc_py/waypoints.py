@@ -17,7 +17,7 @@ from math import atan2
 import numpy as np
 import yaml
 
-from dynamics_model import wrap_angle
+from marine_gnc_py.dynamics_model import wrap_angle
 
 
 def _array(data: Any, default: list[float], n: int) -> np.ndarray:

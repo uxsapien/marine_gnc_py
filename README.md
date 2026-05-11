@@ -2,11 +2,7 @@
 
 This is a self-contained Python simulation for a 12-state marine vehicle model:
 
-```text
-state = [x, y, z, roll, pitch, yaw, u, v, w, p, q, r]
-```
-
-`z` is positive downward. Pose is inertial/NED-style and velocities are body-frame.
+<img src="./.animation.gif"/>
 
 ## Configuration files
 
