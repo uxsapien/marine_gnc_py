@@ -1,0 +1,69 @@
+controller:
+  enabled: true
+
+  # Which state drives the controller: ekf or truth. The runner can override
+  # this with --controller-state-source.
+  state_source: ekf
+
+  # Saturation limits for commanded body wrench [X, Y, Z, K, M, N].
+  tau_limits: [30.0, 30.0, 22.0, 4.0, 4.0, 4.0]
+
+  # Feedforward trim wrench. Z trim helps counter the slightly positive buoyancy
+  # in the example vehicle.
+  tau_trim: [0.0, 0.0, 2.0, 0.0, 0.0, 0.0]
+
+  # Receding-horizon settings. This is a simple nonlinear MPC using scipy's
+  # L-BFGS-B optimizer, so keep the horizon modest for interactive runs.
+  horizon_steps: 8
+  prediction_dt: 0.09
+  update_period_s: 0.18
+  max_iterations: 40
+  optimizer_ftol: 1.0e-3
+  warm_start: true
+  fallback_to_trim_on_failure: false
+
+  # State error weights. For *_deg entries, values are interpreted as the
+  # one-sigma error scale in degrees and internally converted to 1/rad^2.
+  state_error_weights:
+    x: 1.0
+    y: 1.0
+    z: 2.0
+    roll_deg: 12.0
+    pitch_deg: 12.0
+    yaw_deg: 18.0
+    u: 0.3
+    v: 0.3
+    w: 0.5
+    p_deg: 60.0
+    q_deg: 60.0
+    r_deg: 60.0
+
+  terminal_state_error_weights:
+    x: 2.5
+    y: 2.5
+    z: 4.0
+    roll_deg: 10.0
+    pitch_deg: 10.0
+    yaw_deg: 15.0
+    u: 0.5
+    v: 0.5
+    w: 0.8
+    p_deg: 60.0
+    q_deg: 60.0
+    r_deg: 60.0
+
+  control_weights:
+    X: 0.03
+    Y: 0.03
+    Z: 0.05
+    K: 0.15
+    M: 0.15
+    N: 0.12
+
+  control_rate_weights:
+    X: 0.02
+    Y: 0.02
+    Z: 0.03
+    K: 0.06
+    M: 0.06
+    N: 0.05

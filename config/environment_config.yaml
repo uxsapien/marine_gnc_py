@@ -1,0 +1,36 @@
+# Environment configuration owns water-column bounds, currents, and physical
+# truth disturbances. These disturbances are applied through tau, not as direct
+# state jumps.
+
+enabled: true
+
+water_bounds:
+  surface_z_m: 0.0
+  water_depth_m: 30.0
+
+current_profile:
+  enabled: true
+  depth_points_m: [0.0, 5.0, 15.0, 30.0]
+  current_ned_profile_mps:
+    - [0.18,  0.04, 0.0]
+    - [0.14,  0.03, 0.0]
+    - [0.07, -0.01, 0.0]
+    - [0.02, -0.03, 0.0]
+  sinusoid_amplitude_ned_mps: [0.03, 0.02, 0.0]
+  sinusoid_period_s: 45.0
+  sinusoid_phase_rad: 0.0
+
+truth_disturbance:
+  enabled: true
+  tau_bias_enabled: true
+  tau_random_enabled: true
+
+  # Constant unknown bias sampled once per run, [X,Y,Z,K,M,N].
+  tau_bias_std: [0.15, 0.15, 0.10, 0.02, 0.02, 0.02]
+
+  # Random wrench disturbance sampled every dynamics step, [X,Y,Z,K,M,N].
+  tau_random_std: [0.20, 0.20, 0.12, 0.015, 0.015, 0.015]
+
+  # Direct state noise is disabled by default because it is non-physical.
+  process_noise_enabled: false
+  state_process_noise_std: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]

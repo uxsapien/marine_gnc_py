@@ -1,0 +1,50 @@
+# Actual simulated sensor characteristics. These act on the propagated ground
+# truth state. The EKF has its own assumed R values in ekf_config.yaml.
+
+seed_offset: 1000
+
+sensors:
+  depth:
+    enabled: true
+    state_indices: [2]
+    measurement_names: [z]
+    std: [0.02]
+    bias_std: [0.01]
+    rate_hz: 20.0
+    dropout_prob: 0.0
+
+  attitude:
+    enabled: true
+    state_indices: [3, 4, 5]
+    measurement_names: [roll, pitch, yaw]
+    std_deg: [0.25, 0.25, 1.0]
+    bias_std_deg: [0.05, 0.05, 0.25]
+    rate_hz: 50.0
+    dropout_prob: 0.0
+
+  gyro:
+    enabled: true
+    state_indices: [9, 10, 11]
+    measurement_names: [p, q, r]
+    std_deg: [0.20, 0.20, 0.20]
+    bias_std_deg: [0.03, 0.03, 0.03]
+    rate_hz: 100.0
+    dropout_prob: 0.0
+
+  dvl:
+    enabled: true
+    state_indices: [6, 7, 8]
+    measurement_names: [u, v, w]
+    std: [0.015, 0.015, 0.020]
+    bias_std: [0.005, 0.005, 0.006]
+    rate_hz: 10.0
+    dropout_prob: 0.02
+
+  acoustic_position:
+    enabled: false
+    state_indices: [0, 1]
+    measurement_names: [x, y]
+    std: [0.20, 0.20]
+    bias_std: [0.05, 0.05]
+    rate_hz: 1.0
+    dropout_prob: 0.05

@@ -1,0 +1,51 @@
+# Simple waypoint LQR controller configuration.
+# The controller linearizes the nominal marine vehicle model about the active waypoint and
+# computes tau_cmd = tau_trim - K(x - x_ref).
+
+controller:
+  enabled: true
+  state_source: ekf   # ekf or truth
+
+  # Force/moment saturation limits [X,Y,Z,K,M,N].
+  tau_limits: [30.0, 30.0, 22.0, 4.0, 4.0, 4.0]
+
+  # Trim wrench used for linearization and as the center of the control law.
+  # The default Z trim approximately cancels this vehicle
+  # example's slight positive buoyancy in the NED z-positive-down convention.
+  tau_trim: [0.0, 0.0, 2.0, 0.0, 0.0, 0.0]
+
+  # Discrete linearization settings.
+  linearization_dt: 0.03
+  update_period_s: 0.50
+  finite_difference_state_eps: 1.0e-5
+  finite_difference_tau_eps: 1.0e-4
+  regularization: 1.0e-8
+  # Recompute gain when the local reference moves by this much in state-space.
+  # This prevents point-heading yaw updates from forcing a DARE solve every step.
+  reference_update_threshold: 0.50
+
+  # State error weights. Non-angle entries are direct Q diagonal weights.
+  # Angle entries ending in _deg are readability scales: smaller scale means
+  # larger penalty because weight = 1 / radians(scale_deg)^2.
+  state_error_weights:
+    x: 1.0
+    y: 1.0
+    z: 2.0
+    roll_deg: 10.0
+    pitch_deg: 10.0
+    yaw_deg: 15.0
+    u: 0.8
+    v: 0.8
+    w: 1.0
+    p_deg: 40.0
+    q_deg: 40.0
+    r_deg: 40.0
+
+  # Control effort weights. Larger values make the controller use less effort.
+  control_weights:
+    X: 0.20
+    Y: 0.20
+    Z: 0.25
+    K: 0.45
+    M: 0.45
+    N: 0.30

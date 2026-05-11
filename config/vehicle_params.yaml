@@ -1,0 +1,74 @@
+# Vehicle parameters are split into truth and nominal.
+# - truth: simulated physical plant
+# - nominal: EKF/controller process model
+# Tune nominal manually to test model mismatch/robustness.
+
+truth:
+  g: 9.81
+  m: 11.5
+  B: 114.8
+  r_g: [0.0, 0.0, 0.2]
+  r_b: [0.0, 0.0, 0.0]
+
+  I_x: 0.16
+  I_y: 0.16
+  I_z: 0.16
+  I_xy: 0.0
+  I_xz: 0.0
+  I_yz: 0.0
+
+  X_u: 4.03
+  Y_v: 6.22
+  Z_w: 5.18
+  K_p: 3.07
+  M_q: 3.07
+  N_r: 4.64
+
+  X_uu: 18.18
+  Y_vv: 21.66
+  Z_ww: 36.99
+  K_pp: 0.45
+  M_qq: 0.45
+  N_rr: 0.43
+
+  X_u_dot: 5.5
+  Y_v_dot: 12.7
+  Z_w_dot: 14.57
+  K_p_dot: 0.12
+  M_q_dot: 0.20
+  N_r_dot: 0.24
+
+nominal:
+  g: 9.81
+  m: 11.7
+  B: 114.2
+  r_g: [0.0, 0.0, 0.19]
+  r_b: [0.0, 0.0, 0.0]
+
+  I_x: 0.17
+  I_y: 0.15
+  I_z: 0.18
+  I_xy: 0.0
+  I_xz: 0.0
+  I_yz: 0.0
+
+  X_u: 4.30
+  Y_v: 6.80
+  Z_w: 5.70
+  K_p: 3.20
+  M_q: 3.20
+  N_r: 4.90
+
+  X_uu: 20.0
+  Y_vv: 23.0
+  Z_ww: 39.0
+  K_pp: 0.50
+  M_qq: 0.50
+  N_rr: 0.46
+
+  X_u_dot: 5.8
+  Y_v_dot: 13.0
+  Z_w_dot: 15.0
+  K_p_dot: 0.13
+  M_q_dot: 0.22
+  N_r_dot: 0.25

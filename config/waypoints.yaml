@@ -1,0 +1,55 @@
+# Waypoint mission for the simple PID waypoint follower.
+# position is [x, y, z] in the inertial/NED-style frame; z is positive down.
+# profile options:
+#   point_heading          Vehicle commands yaw toward the active waypoint.
+#   arbitrary_orientation  Vehicle intercepts each waypoint with the specified
+#                          attitude if provided; otherwise it holds the attitude
+#                          it had when the waypoint became active.
+
+enabled: true
+#profile: point_heading
+profile: arbitrary_orientation
+loop: true
+hold_last_waypoint: true
+position_tolerance_m: 0.75
+depth_tolerance_m: 0.40
+yaw_tolerance_deg: 15.0
+require_heading_for_advance: false
+
+# Robust advancement helps LQR/regulator-style controllers continue if they
+# park just outside the strict tolerance or cross slightly past a waypoint.
+relaxed_position_tolerance_m: 1.25
+relaxed_depth_tolerance_m: 0.65
+relaxed_speed_tolerance_mps: 0.20
+relaxed_acceptance_time_s: 0.50
+advance_when_past_waypoint: true
+past_waypoint_cross_track_tolerance_m: 1.25
+
+waypoints:
+  - name: wp_0
+    position: [0.0, 0.0, 10.0]
+    attitude_deg: [0.0, 0.0, 90.0]
+
+  - name: wp_1
+    position: [8.0, 0.0, 10.0]
+    attitude_deg: [0.0, 0.0, 140.0]
+
+  - name: wp_2
+    position: [8.0, 5.0, 10.0]
+    attitude_deg: [0.0, 0.0, 50.0]
+
+  - name: wp_3
+    position: [14.0, 5.0, 12.0]
+    attitude_deg: [0.0, 0.0, 110.0]
+
+  - name: wp_4
+    position: [14.0, 0.0, 12.0]
+    attitude_deg: [0.0, 0.0, 0.0]
+
+# Example arbitrary-orientation waypoint entry:
+#
+# profile: arbitrary_orientation
+# waypoints:
+#   - name: wp_1
+#     position: [8.0, 0.0, 10.0]
+#     attitude_deg: [0.0, 0.0, 90.0]

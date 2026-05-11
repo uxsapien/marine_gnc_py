@@ -1,0 +1,55 @@
+# EKF tuning. These are the filter's assumed values, not necessarily the true
+# simulated sensor values.
+
+jacobian_mode: sympy-euler  # options: sympy-euler, numerical
+
+initial_state: [0.15, -0.25, 9.85, 0.02, -0.02, 0.04, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+
+initial_std:
+  x: 0.75
+  y: 0.75
+  z: 0.25
+  roll_deg: 5.0
+  pitch_deg: 5.0
+  yaw_deg: 10.0
+  u: 0.25
+  v: 0.25
+  w: 0.15
+  p_deg: 3.0
+  q_deg: 3.0
+  r_deg: 3.0
+
+process_noise_std:
+  x: 0.002
+  y: 0.002
+  z: 0.002
+  roll_deg: 0.02
+  pitch_deg: 0.02
+  yaw_deg: 0.03
+  u: 0.010
+  v: 0.010
+  w: 0.008
+  p_deg: 0.05
+  q_deg: 0.05
+  r_deg: 0.05
+
+measurement_noise:
+  depth:
+    use: true
+    std: [0.03]
+
+  attitude:
+    use: true
+    std_deg: [0.40, 0.40, 1.50]
+
+  gyro:
+    use: true
+    std_deg: [0.30, 0.30, 0.30]
+
+  dvl:
+    use: true
+    std: [0.025, 0.025, 0.030]
+
+  acoustic_position:
+    use: false
+    std: [0.30, 0.30]

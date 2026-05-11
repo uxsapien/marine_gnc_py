@@ -1,0 +1,54 @@
+# Simple PID waypoint-following configuration.
+# The controller outputs tau_cmd = [X, Y, Z, K, M, N].
+# Position PID is computed in inertial/NED axes then rotated into body force.
+# Attitude PID outputs body moments directly.
+
+controller:
+  enabled: true
+  state_source: ekf   # ekf or truth
+
+  # Force/moment saturation limits [X,Y,Z,K,M,N].
+  tau_limits: [35.0, 35.0, 25.0, 5.0, 5.0, 5.0]
+
+  axes:
+    x:
+      kp: 8.0
+      ki: 0.0
+      kd: 12.0
+      integral_limit: 5.0
+      output_limit: 28.0
+
+    y:
+      kp: 8.0
+      ki: 0.0
+      kd: 12.0
+      integral_limit: 5.0
+      output_limit: 28.0
+
+    z:
+      kp: 12.0
+      ki: 0.0
+      kd: 14.0
+      integral_limit: 4.0
+      output_limit: 20.0
+
+    roll:
+      kp: 4.0
+      ki: 0.0
+      kd: 2.0
+      integral_limit: 0.5
+      output_limit: 4.0
+
+    pitch:
+      kp: 4.0
+      ki: 0.0
+      kd: 2.0
+      integral_limit: 0.5
+      output_limit: 4.0
+
+    yaw:
+      kp: 5.0
+      ki: 0.0
+      kd: 3.5
+      integral_limit: 1.0
+      output_limit: 4.0

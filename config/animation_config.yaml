@@ -1,0 +1,29 @@
+# Animation settings for realtime or recorded marine vehicle trajectory playback.
+
+enabled: false
+state_source: truth        # truth or ekf
+realtime: true
+speed: 1.0                # 1.0 = realtime, 2.0 = twice realtime
+stride: 3                 # animate every N simulation samples
+interval_ms: null         # null derives from dt, stride, and speed
+save_path: ""             # e.g. sim_outputs/animation.gif or .mp4
+fps: 30
+dpi: 120
+
+# Ovoid/ellipsoid dimensions in body axes [x_length, y_width, z_height].
+body_dimensions_m: [1.20, 0.55, 0.35]
+body_mesh_resolution: 18
+body_alpha: 0.85
+
+# Body-fixed coordinate axis lengths [xb, yb, zb].
+body_axis_lengths_m: [1.00, 0.75, 0.60]
+show_axis_labels: true
+
+trail_length: 300          # frames; <=0 means full trail
+show_truth_trace: true
+show_ekf_trace: true
+show_waypoints: true
+show_reference_planes: true
+view_elev_deg: 25.0
+view_azim_deg: -60.0
+margin_m: 2.0
