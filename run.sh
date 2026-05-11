@@ -7,5 +7,4 @@ python3 run.py \
   --duration 80.0 \
   --dt 0.03 \
   --animate \
-  --animation-speed 3 \
-  --animation-save .animation.gif
+  --animation-speed 3
